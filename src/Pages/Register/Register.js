@@ -26,6 +26,7 @@ const Register = () => {
         const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
+
         // console.log(name, photoURL, email, password);
 
         createUser(email, password)
@@ -84,6 +85,24 @@ const Register = () => {
                             <Form.Label>Password</Form.Label>
                             <Form.Control name="password" type="password" placeholder="Password" required />
                         </Form.Group>
+                        <Form.Group className="mb-3 " controlId="selectOption">
+                            <div className="mb-3 " >
+                                <input class="form-check-input" type="radio" value="Seller" name="flexRadioDefault" id="Seller" />
+                                <label class="form-check-label" for="Seller">
+                                    Seller
+                                </label>
+                            </div>
+
+                            <div>
+                                <input class="form-check-input" type="radio" value="Buyer" name="flexRadioDefault" id="Buyer" />
+                                <label class="form-check-label" for="Buyer">
+                                    Buyer
+                                </label>
+                            </div>
+
+
+                        </Form.Group>
+
                         <Form.Group className="mb-3" controlId="formBasicCheckbox">
                             <Form.Check
                                 type="checkbox"
