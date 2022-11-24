@@ -8,7 +8,8 @@ import Header from '../Pages/Header/Header';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
+import Footer from '../Pages/Footer/Footer';
+import Button from 'react-bootstrap/Button';
 const DashboardLayout = () => {
     const { user } = useContext(AuthContext);
     const [isAdmin] = useAdmin(user?.email)
@@ -27,14 +28,16 @@ const DashboardLayout = () => {
                 <Col sm={4} className="">
                     {isBuyer && <>
                         <h1 className='mb-5'>Buyer panel</h1>
-                        <Link to="/dashboard">My Orders</Link>  </>}
+                        <Link to="/dashboard/myorders">My Orders</Link>  </>}
 
                     {
                         isAdmin && <>
                             <div className='d-flex flex-column'>
                                 <h1>Admin panel</h1>
-                                <Link to="/dashboard/users">All users</Link>
-                                <Link to="/dashboard/items">Reported Items</Link>
+                                <Link to="/dashboard/seller"> All Sellers</Link>
+                                <Link to="/dashboard/buyer"> All Buyers</Link>
+
+                                <Link to="/dashboard/items"> Reported Items</Link>
                             </div>
                         </>
                     }
@@ -53,6 +56,8 @@ const DashboardLayout = () => {
 
             </Row>
             </Container>
+
+            <Footer></Footer>
 
         </div >
     );

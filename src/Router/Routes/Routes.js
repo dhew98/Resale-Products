@@ -2,7 +2,9 @@ import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../../Layouts/DashBoard";
 
 import Main from "../../Layouts/Main";
-import Allusers from "../../Pages/DashBoard/MyOrders/Admin/Allusers";
+import DefaultPanel from "../../Pages/DashBoard/DefaultPanel";
+import AllSellers from "../../Pages/DashBoard/MyOrders/Admin/AllSellers";
+
 import ReportedItems from "../../Pages/DashBoard/MyOrders/Admin/ReportedItems";
 import Myorders from "../../Pages/DashBoard/MyOrders/Buyer/Myorders";
 import Addproducts from "../../Pages/DashBoard/MyOrders/Seller/Addproducts";
@@ -53,6 +55,10 @@ const router = createBrowserRouter(
             children: [
                 {
                     path: '/dashboard',
+                    element: <DefaultPanel></DefaultPanel>
+                },
+                {
+                    path: '/dashboard/myorders',
                     element: <Myorders></Myorders>
                 },
                 {
@@ -64,9 +70,14 @@ const router = createBrowserRouter(
                     element: <Addproducts></Addproducts>
                 },
                 {
-                    path: '/dashboard/users',
-                    element: <Allusers></Allusers>,
-                    loader: () => fetch("http://localhost:5000/users")
+                    path: '/dashboard/seller',
+                    element: <AllSellers></AllSellers>,
+                    loader: () => fetch("http://localhost:5000/sellers")
+                },
+                {
+                    path: '/dashboard/buyer',
+                    element: <AllSellers></AllSellers>,
+                    loader: () => fetch("http://localhost:5000/sellers")
                 },
                 {
                     path: '/dashboard/items',
