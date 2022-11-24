@@ -22,7 +22,7 @@ const ModalForm = ({ show, setShow, prod }) => {
         const email = user?.email || 'unregistered';
         const number = form.number.value;
         const location = form.location.value;
-        console.log(rate);
+
 
         const booking = {
             userName,
@@ -33,7 +33,7 @@ const ModalForm = ({ show, setShow, prod }) => {
             location
 
         }
-        fetch('https://server-six-kappa.vercel.app/reviews', {
+        fetch('http://localhost:5000/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -44,7 +44,7 @@ const ModalForm = ({ show, setShow, prod }) => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    alert('Thanks for Sharing Your Views!')
+                    alert('Your order is Booked Successfully!')
                     form.reset();
 
                 }
@@ -83,7 +83,7 @@ const ModalForm = ({ show, setShow, prod }) => {
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="number">
                             <Form.Label for="number" >Phone Number</Form.Label>
-                            <Form.Control id="number" type="number" placeholder="Enter your number" />
+                            <Form.Control id="number" type="text" placeholder="Enter your number" />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="location">
                             <Form.Label for="location">Meeting Location</Form.Label>
