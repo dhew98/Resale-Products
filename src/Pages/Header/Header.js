@@ -13,12 +13,12 @@ import ReactTooltip from 'react-tooltip';
 
 
 const Header = () => {
-    // const { user, logOut } = useContext(AuthContext);
-    // const handleLogOut = () => {
-    //     logOut()
-    //         .then(() => { })
-    //         .catch(error => console.error(error))
-    // }
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
 
     return (
         <div>
@@ -41,7 +41,7 @@ const Header = () => {
 
 
 
-                            {/* 
+
 
 
                             {
@@ -68,8 +68,7 @@ const Header = () => {
                                 </Image>
                                     <ReactTooltip id='userName'>{user?.displayName}</ReactTooltip></>
                                 : <FontAwesomeIcon icon={faUser} />
-                            } */}
-
+                            }
 
 
 

@@ -1,0 +1,24 @@
+[
+    {
+        "name": "ASUS VivoBook Pro 15",
+        "img": "https://www.startech.com.bd/image/cache/catalog/laptop/asus/vivobook-pro-15/vivobook-pro-15-01-500x500.jpg",
+        "location": "Rajshahi",
+        "price": "90,000",
+        "orgPrice": "115,000",
+        "use": "1",
+        "date": "25th Nov 2022",
+        "seller": "Jawad",
+        "cat_id": "637ee62bf3ee5834ef8fa06c"
+    },
+    {
+        "name": "Asus ExpertBook",
+        "img": "https://www.startech.com.bd/image/cache/catalog/laptop/asus/expertbook-b1-b1400ceae/expertbook-b1-b1400ceae-01-500x500.jpg",
+        "location": "Khulna",
+        "price": "60,000",
+        "orgPrice": "110,000",
+        "use": "1.5",
+        "date": "25th Nov 2022",
+        "seller": "Dhew",
+        "cat_id": "637ee62bf3ee5834ef8fa06c"
+    }
+]
