@@ -34,7 +34,7 @@ const DashboardLayout = () => {
                             <div className='d-flex flex-column'>
                                 <h1>Admin panel</h1>
                                 <Link to="/dashboard/users">All users</Link>
-                                <Link to="/dashboard/reportedItems">Reported Items</Link>
+                                <Link to="/dashboard/items">Reported Items</Link>
                             </div>
                         </>
                     }
