@@ -3,8 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 
 
-
-const AllSellers = () => {
+const AllBuyers = () => {
     const users = useLoaderData();
 
 
@@ -34,4 +33,4 @@ const AllSellers = () => {
     );
 };
 
-export default AllSellers;
+export default AllBuyers;
