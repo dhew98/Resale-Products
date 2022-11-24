@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../../Contexts/AuthProvider';
 import Form from 'react-bootstrap/Form';
+import { format } from 'date-fns';
 
 const Addproducts = () => {
 
@@ -9,41 +10,57 @@ const Addproducts = () => {
     const handleProducts = (event) => {
         event.preventDefault();
         const form = event.target;
-        const name = user?.displayName;
+        const userName = user?.displayName;
         const email = user?.email || 'unregistered';
         const img = form.image.value;
-        const Orgprice = form.Orgprice.value;
+        const orgPrice = form.Orgprice.value;
         const price = form.price.value;
         const use = form.used.value;
         const location = form.location.value;
-        const brand = form.brand.value;
+        const brand = form.brand.value.toLowerCase();
+        const item = form.item.value;
+        const date = form.date.value;
 
 
         if (brand === "asus") {
             cat_id = "637ee62bf3ee5834ef8fa06c";
         }
-
-        const review = {
-            services: _id,
-            serviceName: item,
-            customer: name,
-            rating: rate,
-            email,
-            message,
-            img
+        if (brand === "lenovo") {
+            cat_id = "637ee62bf3ee5834ef8fa06e";
         }
-        fetch('https://server-six-kappa.vercel.app/reviews', {
+        if (brand === "hp") {
+            cat_id = "637ee62bf3ee5834ef8fa06d";
+        }
+
+
+
+
+
+
+        const product = {
+            name: item,
+            img,
+            location,
+            price,
+            orgPrice,
+            use,
+            seller: userName,
+            email,
+            cat_id,
+            date
+        }
+        fetch('http://localhost:5000/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(review)
+            body: JSON.stringify(product)
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    alert('Thanks for Sharing Your Views!')
+                    alert('Product Added Successfully!')
                     form.reset();
 
                 }
@@ -84,15 +101,22 @@ const Addproducts = () => {
                     <Form.Control id="location" type="text" placeholder="Enter Location" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="brand">
-                    <Form.Label for="brand">Brand</Form.Label>
-                    <Form.Control id="brand" type="text" placeholder="Enter Brand Name" />
+                    <label for="brand">Select Brand : </label>
+
+                    <select id="brand" name="brand">
+                        <option value="Asus">Asus</option>
+                        <option value="Lenovo">Lenovo</option>
+                        <option value="HP">HP</option>
+                    </select>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="used">
                     <Form.Label for="used">Used</Form.Label>
-                    <Form.Control id="used" type="text" placeholder="Enter Usage period" />
+                    <Form.Control id="used" type="text" placeholder="Enter no. of years" />
                 </Form.Group>
-
-
+                <Form.Group className="mb-3" controlId="date">
+                    <Form.Label for="date">Date</Form.Label>
+                    <Form.Control id="date" type="text" placeholder="Enter dd/mm/yy" />
+                </Form.Group>
                 <input className='btn btn-primary mt-2' type="submit" value="Post" />
             </Form>
         </div>

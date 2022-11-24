@@ -23,7 +23,6 @@ const DashboardLayout = () => {
 
             <Header></Header>
 
-
             <Container> <Row className='mt-5'>
                 <Col sm={4} className="">
                     {isBuyer && <>
@@ -32,10 +31,11 @@ const DashboardLayout = () => {
 
                     {
                         isAdmin && <>
-                            <h1>Admin panel</h1>
-                            <Link to="/dashboard">All Sellers</Link>
-                            <Link to="/dashboard/buyers">All Buyers</Link>
-                            <Link to="/dashboard/reportedItems">Reported Items</Link>
+                            <div className='d-flex flex-column'>
+                                <h1>Admin panel</h1>
+                                <Link to="/dashboard/users">All users</Link>
+                                <Link to="/dashboard/reportedItems">Reported Items</Link>
+                            </div>
                         </>
                     }
 
@@ -45,7 +45,6 @@ const DashboardLayout = () => {
                                 <h1 className='mb-5'>Seller panel</h1>
                                 <Link to="/dashboard/addProducts">Add a Product</Link>
                                 <Link to="/dashboard/myproducts">My Products</Link>
-                                <Link to="/dashboard/myBuyers">My Buyers</Link>
                             </div>
 
                         </>
@@ -55,7 +54,7 @@ const DashboardLayout = () => {
             </Row>
             </Container>
 
-        </div>
+        </div >
     );
 };
 
