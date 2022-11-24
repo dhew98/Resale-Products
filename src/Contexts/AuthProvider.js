@@ -6,6 +6,9 @@ export const AuthContext = createContext();
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
+
+    const [seller, setseller] = useState('');
+    const [buyer, setbuyer] = useState('');
     const [user, setUser] = useState(null);
     const [review, setreview] = useState([])
     const [loading, setLoading] = useState(true);
@@ -67,8 +70,10 @@ const AuthProvider = ({ children }) => {
 
     const authInfo = {
         user,
-        review,
-        setreview,
+        seller,
+        setseller,
+        buyer,
+        setbuyer,
         loading,
         setLoading,
         providerLogin,

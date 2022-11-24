@@ -35,7 +35,6 @@ const Header = () => {
 
                         <Nav className='mx-3 fs-5 fw-bolder d-flex align-items-center'>
                             <Nav.Link ><Link style={{ textDecoration: "None", color: "black" }} to='/'>Home</Link></Nav.Link>
-                            <Nav.Link><Link style={{ textDecoration: "None", color: "black" }} to='/services'>Services</Link></Nav.Link>
                             <Nav.Link><Link style={{ textDecoration: "None", color: "black" }} to='/blog'>Blog </Link></Nav.Link>
 
 
@@ -48,8 +47,8 @@ const Header = () => {
                                 user?.uid ?
                                     <>
 
-                                        <Nav.Link><Link style={{ textDecoration: "None", color: "black" }} to='/myreview'>My Reviews </Link></Nav.Link>
-                                        <Nav.Link><Link style={{ textDecoration: "None", color: "black" }} to='/addService'>Add Services</Link></Nav.Link>
+                                        <Nav.Link><Link style={{ textDecoration: "None", color: "black" }} to='/dashboard'>DashBoard</Link></Nav.Link>
+
                                         <Nav.Link onClick={handleLogOut}> <Button variant="danger">Log out</Button>  </Nav.Link>
 
                                     </>

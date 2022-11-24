@@ -8,6 +8,7 @@
         "use": "1",
         "date": "25th Nov 2022",
         "seller": "Jawad",
+        "email": "jawaddhew98@gmail.com",
         "cat_id": "637ee62bf3ee5834ef8fa06c"
     },
     {
@@ -19,6 +20,55 @@
         "use": "1.5",
         "date": "25th Nov 2022",
         "seller": "Dhew",
+        "email": "jawaddhew98@gmail.com",
         "cat_id": "637ee62bf3ee5834ef8fa06c"
+    },
+    {
+        "name": "Lenovo IdeaPad 3",
+        "img": "https://www.startech.com.bd/image/cache/catalog/laptop/lenovo/ideapad-3/ideapad-3-110-500x500.jpg",
+        "location": "Khulna",
+        "price": "40,000",
+        "orgPrice": "69,000",
+        "use": "2",
+        "date": "25th Nov 2022",
+        "seller": "Dipon",
+        "email": "dhewk98@gmail.com",
+        "cat_id": "637ee62bf3ee5834ef8fa06d"
+    },
+    {
+        "name": "Lenovo Legion 5 Pro",
+        "img": "https://www.startech.com.bd/lenovo-legion-5-pro-ryzen-7-5800h-gaming-laptop",
+        "location": "Khulna",
+        "price": "150,000",
+        "orgPrice": "206,000",
+        "use": "1",
+        "date": "25th Nov 2022",
+        "seller": "Jawad",
+        "email": "dipon944@gmail.com",
+        "cat_id": "637ee62bf3ee5834ef8fa06d"
+    },
+    {
+        "name": "HP ProBook",
+        "img": "https://www.startech.com.bd/image/cache/catalog/laptop/hp-laptop/probook-445-g8/probook-445-g8-01-500x500.webp",
+        "location": "Khulna",
+        "price": "50,000",
+        "orgPrice": "71,000",
+        "use": "1.3",
+        "date": "25th Nov 2022",
+        "seller": "Jawad",
+        "email": "dipon944@gmail.com",
+        "cat_id": "637ee62bf3ee5834ef8fa06e"
+    },
+    {
+        "name": "HP Pavilion",
+        "img": "https://www.startech.com.bd/image/cache/catalog/laptop/hp-laptop/pavilion-15-eg1678tu/pavilion-15-eg1678tu-01-500x500.jpg",
+        "location": "Khulna",
+        "price": "45,000",
+        "orgPrice": "84,000",
+        "use": "2.5",
+        "date": "25th Nov 2022",
+        "seller": "Dipon",
+        "email": "dipon944@gmail.com",
+        "cat_id": "637ee62bf3ee5834ef8fa06e"
     }
 ]

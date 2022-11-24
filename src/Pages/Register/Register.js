@@ -13,7 +13,7 @@ const Register = () => {
     useTitle("Register");
     const [error, setError] = useState('');
     const [accepted, setAccepted] = useState(false);
-    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const { createUser, updateUserProfile, seller, setseller, buyer, setbuyer } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -26,8 +26,38 @@ const Register = () => {
         const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
+        const role = form.role.value;
+        console.log(role);
 
-        // console.log(name, photoURL, email, password);
+        const userInfo = {
+            name,
+            email,
+            role
+        }
+
+
+        fetch(' http://localhost:5000/user', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(userInfo)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+
+                    form.reset();
+
+                }
+            })
+            .catch(er => console.error(er));
+
+
+
+
+
 
         createUser(email, password)
             .then(result => {
@@ -86,19 +116,12 @@ const Register = () => {
                             <Form.Control name="password" type="password" placeholder="Password" required />
                         </Form.Group>
                         <Form.Group className="mb-3 " controlId="selectOption">
-                            <div className="mb-3 " >
-                                <input class="form-check-input" type="radio" value="Seller" name="flexRadioDefault" id="Seller" />
-                                <label class="form-check-label" for="Seller">
-                                    Seller
-                                </label>
-                            </div>
+                            <label for="role">Select Your Role : </label>
+                            <select className='mx-2' id="role" name="role">
+                                <option value="Seller">Seller</option>
+                                <option value="Buyer">Buyer</option>
 
-                            <div>
-                                <input class="form-check-input" type="radio" value="Buyer" name="flexRadioDefault" id="Buyer" />
-                                <label class="form-check-label" for="Buyer">
-                                    Buyer
-                                </label>
-                            </div>
+                            </select>
 
 
                         </Form.Group>

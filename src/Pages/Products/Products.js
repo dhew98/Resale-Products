@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import CardGroup from 'react-bootstrap/CardGroup';
 import ProductCard from '../ProductCard/ProductCard';
