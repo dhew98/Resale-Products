@@ -3,9 +3,37 @@ import { useLoaderData } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { useQuery } from '@tanstack/react-query';
 
 const AllBuyers = () => {
-    const users = useLoaderData();
+
+
+    const { data: users = [], refetch } = useQuery({
+        queryKey: ['users'],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5000/buyers');
+            const data = await res.json();
+            return data;
+        }
+    });
+
+    const handleDelete = (email) => {
+        const proceed = window.confirm('Are you sure, you want to Delete this product?');
+        if (proceed) {
+            fetch(`http://localhost:5000/user/${email}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.deletedCount > 0) {
+                        alert('deleted successfully');
+                        refetch();
+                    }
+                })
+        }
+    }
+
 
 
     return (
@@ -28,7 +56,7 @@ const AllBuyers = () => {
                         <td>{user.name}</td>
                         <td>{user.email}</td>
                         <td>{user.role}</td>
-                        <td className='text-center'><FontAwesomeIcon className='text-danger ' icon={faTrash} /></td>
+                        <td className='text-center'> <button onClick={() => handleDelete(user.email)} className='border-0 btn btn-danger' type=""><FontAwesomeIcon className='' icon={faTrash} /></button> </td>
 
                     </tr>)}
                 </tbody>

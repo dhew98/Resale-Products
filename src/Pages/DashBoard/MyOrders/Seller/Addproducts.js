@@ -72,7 +72,7 @@ const Addproducts = () => {
                 if (data.acknowledged) {
                     alert('Product Added Successfully!')
                     form.reset();
-                    navigate("/dashboard/myorders");
+                    navigate("/dashboard/myproducts");
 
                 }
             })
@@ -85,35 +85,35 @@ const Addproducts = () => {
             <Form onSubmit={handleProducts}>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control defaultValue={user?.displayName} type="text" placeholder="Enter Your Name" />
+                    <Form.Control required defaultValue={user?.displayName} type="text" placeholder="Enter Your Name" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control defaultValue={user?.email} type="email" placeholder="name@example.com" />
+                    <Form.Control required defaultValue={user?.email} type="email" placeholder="name@example.com" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="item">
                     <Form.Label for="item">Item Name</Form.Label>
-                    <Form.Control id="item" type="text" placeholder="Enter Item Name " />
+                    <Form.Control required id="item" type="text" placeholder="Enter Item Name " />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                     <Form.Label>Description</Form.Label>
-                    <Form.Control name="description" as="textarea" rows={3} placeholder="At least 100words" />
+                    <Form.Control required name="description" as="textarea" rows={3} placeholder="At least 100words" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="Orgprice">
                     <Form.Label for="Orgprice">Original Price</Form.Label>
-                    <Form.Control id="Orgprice" type="text" placeholder="Enter Price" />
+                    <Form.Control required id="Orgprice" type="text" placeholder="Enter Price" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="price">
                     <Form.Label for="price" >Resale Price</Form.Label>
-                    <Form.Control id="price" type="text" placeholder="Enter Price" />
+                    <Form.Control required id="price" type="text" placeholder="Enter Price" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="image">
                     <Form.Label for="image" >Image url</Form.Label>
-                    <Form.Control id="image" type="text" placeholder="Enter image url" />
+                    <Form.Control required id="image" type="text" placeholder="Enter image url" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="location">
                     <Form.Label for="location">Location</Form.Label>
-                    <Form.Control id="location" type="text" placeholder="Enter Location" />
+                    <Form.Control required id="location" type="text" placeholder="Enter Location" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="brand">
                     <label for="brand">Select Brand : </label>
@@ -126,7 +126,7 @@ const Addproducts = () => {
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="used">
                     <Form.Label for="used">Used</Form.Label>
-                    <Form.Control id="used" type="text" placeholder="Enter no. of years" />
+                    <Form.Control required id="used" type="text" placeholder="Enter no. of years" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="cond">
                     <Form.Label for="cond">Condition :</Form.Label>
@@ -138,7 +138,7 @@ const Addproducts = () => {
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="date">
                     <Form.Label for="date">Date</Form.Label>
-                    <Form.Control id="date" type="text" placeholder="Enter dd/mm/yy" />
+                    <Form.Control required id="date" type="text" placeholder="Enter dd/mm/yy" />
                 </Form.Group>
                 <input className='btn btn-primary mt-2' type="submit" value="Post" />
             </Form>

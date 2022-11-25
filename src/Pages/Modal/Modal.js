@@ -12,7 +12,7 @@ const ModalForm = ({ show, setShow, prod }) => {
     const { user } = useContext(AuthContext);
 
     const handleClose = () => {
-        alert('Your order is Booked Successfully!');
+
         setShow(false);
 
     }
@@ -48,7 +48,7 @@ const ModalForm = ({ show, setShow, prod }) => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-
+                    alert('Your order is Booked Successfully!');
                     form.reset();
 
                 }
@@ -102,9 +102,7 @@ const ModalForm = ({ show, setShow, prod }) => {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Book
-                    </Button>
+
                 </Modal.Footer>
             </Modal>
         </>

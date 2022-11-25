@@ -11,7 +11,7 @@ import ModalForm from '../Modal/Modal';
 const ProductCard = ({ prod }) => {
     const [show, setShow] = useState(false);
     const handleShow = () => setShow(true);
-    const { name, location, price, img, orgPrice, use, date, seller } = prod;
+    const { name, location, price, img, orgPrice, use, date, seller, description } = prod;
     return (
         <div>
             <Card style={{ width: '25rem' }} className="m-5 " >
@@ -24,6 +24,7 @@ const ProductCard = ({ prod }) => {
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
                     <Card.Text>
+                        <p ><span className='fw-bold'>Description : </span>{description.slice(0, 100)}</p>
                         <p >location : <span className='fw-bold'>{location}</span> </p>
                         <p >Resale Price : <span className='fw-bold'>{price} Tk</span> </p>
                         <p >Original Price : <span className='fw-bold'>{orgPrice} Tk</span> </p>
@@ -34,6 +35,7 @@ const ProductCard = ({ prod }) => {
                             <h5 >Seller : <span className='fw-bold'>{seller}</span> <FontAwesomeIcon className='text-primary' icon={faCheckCircle} /> </h5>
                             <p><Button onClick={handleShow} variant="primary">Book Now</Button></p>
                         </div>
+
 
                     </Card.Text>
                     <ModalForm show={show} setShow={setShow} prod={prod}></ModalForm>

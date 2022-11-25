@@ -8,29 +8,47 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const MyProducts = () => {
 
+
+    const [ad, setad] = useState(true);
+
     const { user } = useContext(AuthContext)
     const url = `http://localhost:5000/products?email=${user?.email}`;
 
-
-    const [Products, setProducts] = useState([]);
-
-
-    const { data: products = [] } = useQuery({
+    const { data: products = [], refetch } = useQuery({
         queryKey: ['products', user?.email],
         queryFn: async () => {
             const res = await fetch(url);
             const data = await res.json();
-            setProducts(data);
+
             return data;
         }
     })
 
 
 
+    const handleAdvertise = (item) => {
+        console.log(item);
+        setad(false);
+        fetch("http://localhost:5000/advertise", {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(item)
+        })
+            .then(res => res.json())
+            .then(newData => {
+                if (newData.acknowledged)
+                    alert("Successfully Advertied in Homepage")
+            })
+            .catch(er => console.error(er));
+    }
+
     const handleDelete = (id) => {
+        console.log(id)
         const proceed = window.confirm('Are you sure, you want to Delete this product?');
         if (proceed) {
-            fetch(`https://localhost:5000/products/${id}`, {
+            fetch(`http://localhost:5000/products/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -38,8 +56,7 @@ const MyProducts = () => {
                     console.log(data);
                     if (data.deletedCount > 0) {
                         alert('deleted successfully');
-                        const remaining = Products.filter(rev => rev._id !== id);
-                        setProducts(remaining);
+                        refetch();
                     }
                 })
         }
@@ -55,8 +72,8 @@ const MyProducts = () => {
                     <tr>
                         <th>ID</th>
                         <th>Product Name</th>
-                        <th>Resale Price</th>
                         <th>Status</th>
+                        <th>Advertise</th>
                         <th>Delete</th>
                     </tr>
                 </thead>
@@ -65,8 +82,9 @@ const MyProducts = () => {
                     {products.map((prod, index) => <tr>
                         <td>{index + 1}</td>
                         <td>{prod.name}</td>
-                        <td>{prod.price}Tk</td>
+
                         <td>{prod.status}</td>
+                        <td className='text-center'><button onClick={() => handleAdvertise(prod)} className=' btn btn-success ' type="">Advertise</button></td>
                         <td className='text-center'> <button onClick={() => handleDelete(prod._id)} className='border-0 btn btn-danger' type=""><FontAwesomeIcon className='' icon={faTrash} /></button> </td>
                     </tr>)}
                 </tbody>

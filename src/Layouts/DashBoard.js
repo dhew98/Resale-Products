@@ -28,16 +28,15 @@ const DashboardLayout = () => {
                 <Col sm={4} className="">
                     {isBuyer && <>
                         <h1 className='mb-5'>Buyer panel</h1>
-                        <Link to="/dashboard/myorders">My Orders</Link>  </>}
+                        <Link to="/dashboard/myorders"> <button className='btn btn-primary' type="">My Orders</button></Link>  </>}
 
                     {
                         isAdmin && <>
                             <div className='d-flex flex-column'>
                                 <h1>Admin panel</h1>
-                                <Link to="/dashboard/seller"> All Sellers</Link>
-                                <Link to="/dashboard/buyer"> All Buyers</Link>
-
-                                <Link to="/dashboard/items"> Reported Items</Link>
+                                <Link to="/dashboard/seller"> <button className='btn btn-primary mb-3' type="">All Sellers</button> </Link>
+                                <Link to="/dashboard/buyer"> <button className='btn btn-primary mb-3' type=""> All Buyers</button></Link>
+                                <Link to="/dashboard/items"> <button className='btn btn-primary' type="">Reported Items</button></Link>
                             </div>
                         </>
                     }
@@ -46,8 +45,8 @@ const DashboardLayout = () => {
                         isSeller && <>
                             <div className='d-flex flex-column'>
                                 <h1 className='mb-5'>Seller panel</h1>
-                                <Link to="/dashboard/addProducts">Add a Product</Link>
-                                <Link to="/dashboard/myproducts">My Products</Link>
+                                <Link to="/dashboard/addProducts"> <button className='btn btn-primary mb-3' type="">Add a Product</button></Link>
+                                <Link to="/dashboard/myproducts"><button className='btn btn-primary' type="">My Products</button></Link>
                             </div>
 
                         </>

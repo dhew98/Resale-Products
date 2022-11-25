@@ -13,8 +13,8 @@ const Footer = () => {
                     <Col xs={12} md={4}>
                         <div>
                             <div className='d-flex'>
-                                <img className='mx-3' style={{ height: '100px', borderRadius: "50%" }} src='https://img.freepik.com/premium-vector/chef-icon-with-tray-food-hand_602006-191.jpg' alt='' />
-                                <h5> <span className='fs-2'>Jawad's Cuisine</span> <br />Providing The Best <br /> Quality Food Service</h5>
+                                <img className='' style={{ height: '120px' }} src='https://cdn3d.iconscout.com/3d/premium/thumb/development-3981411-3297349.png' alt='' />
+                                <h5> <span className='fs-2'>GetALap</span> <br />Sell Your Laptop  <br />Buy a laptop  <br />chaper than new one </h5>
                             </div>
 
                         </div>
@@ -23,10 +23,10 @@ const Footer = () => {
                     <Col xs={12} md={4}>
                         <div className='d-flex flex-column fs-5'>
                             <h2>Services</h2>
-                            <a href="/" className="link link-hover">Catering</a>
-                            <a href="/" className="link link-hover">Indian Cuisine</a>
-                            <a href="/" className="link link-hover">Chinese Cuisine</a>
-                            <a href="/" className="link link-hover">Traditional Food</a>
+                            <a href="/" className="link link-hover">Sell</a>
+                            <a href="/" className="link link-hover">Buy</a>
+                            <a href="/" className="link link-hover">Servicing Laptops</a>
+                            <a href="/" className="link link-hover">Resale Products</a>
                         </div>
                     </Col>
                     <Col xs={12} md={4}>

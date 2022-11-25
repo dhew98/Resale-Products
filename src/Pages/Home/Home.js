@@ -3,6 +3,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 import CardGroup from 'react-bootstrap/CardGroup';
 import useTitle from '../../Hooks/useTitle';
 import Category from '../Category/Category';
+import Advertise from '../Advertise/Advertise';
 
 const Home = () => {
 
@@ -34,6 +35,8 @@ const Home = () => {
 
             {/* catagories */}
 
+
+            <Advertise></Advertise>
 
 
             <h1 className="text-center mt-5" >Category</h1>

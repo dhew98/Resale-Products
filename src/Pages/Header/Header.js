@@ -24,7 +24,7 @@ const Header = () => {
         <div>
             <Navbar collapseOnSelect expand="lg" bg="white" variant="light">
                 <Container>
-                    <Navbar.Brand > <h3> <img style={{ height: '70px' }} src='https://cdn0.iconfinder.com/data/icons/marketing-59/64/sell-link-buy-512.png' alt='' /> <Link style={{ textDecoration: "None", color: "black" }} to='/' >BechaKena.Com</Link></h3>  </Navbar.Brand>
+                    <Navbar.Brand > <h3> <img style={{ height: '80px' }} src='https://cdn3d.iconscout.com/3d/premium/thumb/development-3981411-3297349.png' alt='' /> <Link style={{ textDecoration: "None", color: "black" }} to='/' >GetALap</Link></h3>  </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
