@@ -44,11 +44,11 @@ const MyProducts = () => {
             .catch(er => console.error(er));
     }
 
-    const handleDelete = (id) => {
-        console.log(id)
+    const handleDelete = (name) => {
+
         const proceed = window.confirm('Are you sure, you want to Delete this product?');
         if (proceed) {
-            fetch(`http://localhost:5000/products/${id}`, {
+            fetch(`http://localhost:5000/products/${name}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -85,7 +85,7 @@ const MyProducts = () => {
 
                         <td>{prod.status}</td>
                         <td className='text-center'><button onClick={() => handleAdvertise(prod)} className=' btn btn-success ' type="">Advertise</button></td>
-                        <td className='text-center'> <button onClick={() => handleDelete(prod._id)} className='border-0 btn btn-danger' type=""><FontAwesomeIcon className='' icon={faTrash} /></button> </td>
+                        <td className='text-center'> <button onClick={() => handleDelete(prod.name)} className='border-0 btn btn-danger' type=""><FontAwesomeIcon className='' icon={faTrash} /></button> </td>
                     </tr>)}
                 </tbody>
             </Table>

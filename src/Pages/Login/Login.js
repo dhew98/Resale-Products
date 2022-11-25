@@ -34,6 +34,33 @@ const Login = () => {
 
 
                 const user = result.user;
+                console.log(user.email);
+
+                const userInfo = {
+                    name: user.displayName,
+                    email: user.email,
+                    role: "Buyer",
+                }
+
+
+                fetch(' http://localhost:5000/user', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userInfo)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data.acknowledged) {
+
+                            alert("Buyer inserted!")
+
+                        }
+                    })
+                    .catch(er => console.error(er));
+
                 navigate(from, { replace: true });
             }).catch((error) => {
                 console.log("error : ", error);

@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../../Layouts/DashBoard";
 
 import Main from "../../Layouts/Main";
+import Blog from "../../Pages/Blog/Blog";
 import DefaultPanel from "../../Pages/DashBoard/DefaultPanel";
 import AllBuyers from "../../Pages/DashBoard/MyOrders/Admin/AllBuyers";
 import AllSellers from "../../Pages/DashBoard/MyOrders/Admin/AllSellers";
@@ -10,6 +11,7 @@ import ReportedItems from "../../Pages/DashBoard/MyOrders/Admin/ReportedItems";
 import Myorders from "../../Pages/DashBoard/MyOrders/Buyer/Myorders";
 import Addproducts from "../../Pages/DashBoard/MyOrders/Seller/Addproducts";
 import MyProducts from "../../Pages/DashBoard/MyOrders/Seller/MyProducts";
+import Faq from "../../Pages/Faq/Faq";
 
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
@@ -37,6 +39,10 @@ const router = createBrowserRouter(
                     element: <Login></Login>
                 },
                 {
+                    path: '/blog',
+                    element: <Blog></Blog>
+                },
+                {
                     path: '/register',
                     element: <Register></Register>
                 },
@@ -45,6 +51,10 @@ const router = createBrowserRouter(
                     element: <PrivateRoute><Products></Products></PrivateRoute>,
                     loader: ({ params }) => fetch(`http://localhost:5000/categories/${params.id}`)
 
+                },
+                {
+                    path: "/*",
+                    element: <Faq></Faq>
                 }
 
 

@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 const Footer = () => {
     return (
-        <footer className="footer  bg-warning p-5">
+        <footer className="footer  bg-warning mt-5 p-5">
 
             <Container>
                 <Row>
