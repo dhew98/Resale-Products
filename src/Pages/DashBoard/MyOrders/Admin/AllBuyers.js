@@ -1,7 +1,8 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const AllBuyers = () => {
     const users = useLoaderData();
@@ -9,14 +10,15 @@ const AllBuyers = () => {
 
     return (
         <div>
-            <h1>All Sellers</h1>
-            <Table striped bordered hover className='mt-5'>
+            <h1>All Buyers</h1>
+            <Table striped bordered hover className='mt-5 mb-5'>
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Role</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,6 +28,8 @@ const AllBuyers = () => {
                         <td>{user.name}</td>
                         <td>{user.email}</td>
                         <td>{user.role}</td>
+                        <td className='text-center'><FontAwesomeIcon className='text-danger ' icon={faTrash} /></td>
+
                     </tr>)}
                 </tbody>
             </Table>

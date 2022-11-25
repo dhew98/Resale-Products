@@ -11,7 +11,11 @@ const ModalForm = ({ show, setShow, prod }) => {
 
     const { user } = useContext(AuthContext);
 
-    const handleClose = () => setShow(false);
+    const handleClose = () => {
+        alert('Your order is Booked Successfully!');
+        setShow(false);
+
+    }
     const { name, location, price, img, orgPrice, use, date, seller } = prod;
 
 
@@ -44,7 +48,7 @@ const ModalForm = ({ show, setShow, prod }) => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    alert('Your order is Booked Successfully!')
+
                     form.reset();
 
                 }

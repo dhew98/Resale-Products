@@ -3,6 +3,7 @@ import DashboardLayout from "../../Layouts/DashBoard";
 
 import Main from "../../Layouts/Main";
 import DefaultPanel from "../../Pages/DashBoard/DefaultPanel";
+import AllBuyers from "../../Pages/DashBoard/MyOrders/Admin/AllBuyers";
 import AllSellers from "../../Pages/DashBoard/MyOrders/Admin/AllSellers";
 
 import ReportedItems from "../../Pages/DashBoard/MyOrders/Admin/ReportedItems";
@@ -76,7 +77,7 @@ const router = createBrowserRouter(
                 },
                 {
                     path: '/dashboard/buyer',
-                    element: <AllSellers></AllSellers>,
+                    element: <AllBuyers></AllBuyers>,
                     loader: () => fetch("http://localhost:5000/buyers")
                 },
                 {
