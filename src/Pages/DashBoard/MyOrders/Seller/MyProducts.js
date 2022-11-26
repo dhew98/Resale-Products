@@ -28,6 +28,7 @@ const MyProducts = () => {
 
     const handleAdvertise = (item) => {
         console.log(item);
+
         setad(false);
         fetch("http://localhost:5000/advertise", {
             method: 'POST',

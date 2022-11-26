@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 const Footer = () => {
     return (
-        <footer className="footer  bg-warning mt-5 p-5">
+        <footer className="footer  bg-black text-white mt-5 p-5">
 
             <Container>
                 <Row>
@@ -14,7 +14,7 @@ const Footer = () => {
                         <div>
                             <div className='d-flex'>
                                 <img className='' style={{ height: '120px' }} src='https://cdn3d.iconscout.com/3d/premium/thumb/development-3981411-3297349.png' alt='' />
-                                <h5> <span className='fs-2'>GetALap</span> <br />Sell Your Laptop  <br />Buy a laptop  <br />chaper than new one </h5>
+                                <h5> <span className='fs-2'>GetALap</span> <br />Sell Your Laptop  <br />Get quick cash <br />Buy a laptop  <br />chaper than new one </h5>
                             </div>
 
                         </div>
