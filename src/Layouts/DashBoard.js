@@ -10,11 +10,13 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Footer from '../Pages/Footer/Footer';
 import Button from 'react-bootstrap/Button';
+import useTitle from '../Hooks/useTitle';
 const DashboardLayout = () => {
     const { user } = useContext(AuthContext);
     const [isAdmin] = useAdmin(user?.email)
     const [isBuyer] = useBuyer(user?.email)
     const [isSeller] = useSeller(user?.email)
+    useTitle("DashBoard")
 
     return (
         <div>

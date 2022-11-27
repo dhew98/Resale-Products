@@ -9,10 +9,9 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 const MyProducts = () => {
 
 
-    const [ad, setad] = useState(true);
 
     const { user } = useContext(AuthContext)
-    const url = `http://localhost:5000/products?email=${user?.email}`;
+    const url = `https://laptop-gamma.vercel.app/products?email=${user?.email}`;
 
     const { data: products = [], refetch } = useQuery({
         queryKey: ['products', user?.email],
@@ -29,8 +28,8 @@ const MyProducts = () => {
     const handleAdvertise = (item) => {
         console.log(item);
 
-        setad(false);
-        fetch("http://localhost:5000/advertise", {
+
+        fetch("https://laptop-gamma.vercel.app/advertise", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -45,11 +44,11 @@ const MyProducts = () => {
             .catch(er => console.error(er));
     }
 
-    const handleDelete = (name) => {
+    const handleDelete = (id) => {
 
         const proceed = window.confirm('Are you sure, you want to Delete this product?');
         if (proceed) {
-            fetch(`http://localhost:5000/products/${name}`, {
+            fetch(`https://laptop-gamma.vercel.app/products/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -83,10 +82,9 @@ const MyProducts = () => {
                     {products.map((prod, index) => <tr>
                         <td>{index + 1}</td>
                         <td>{prod.name}</td>
-
                         <td>{prod.status}</td>
-                        <td className='text-center'><button onClick={() => handleAdvertise(prod)} className=' btn btn-success ' type="">Advertise</button></td>
-                        <td className='text-center'> <button onClick={() => handleDelete(prod.name)} className='border-0 btn btn-danger' type=""><FontAwesomeIcon className='' icon={faTrash} /></button> </td>
+                        {prod.status === "sold" ? <td className='text-center'></td> : <td className='text-center'><button onClick={() => handleAdvertise(prod)} className=' btn btn-success ' type="">Advertise</button></td>}
+                        <td className='text-center'> <button onClick={() => handleDelete(prod._id)} className='border-0 btn btn-danger' type=""><FontAwesomeIcon className='' icon={faTrash} /></button> </td>
                     </tr>)}
                 </tbody>
             </Table>

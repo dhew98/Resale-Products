@@ -59,7 +59,7 @@ const Addproducts = () => {
             date,
             status: "available",
         }
-        fetch('http://localhost:5000/products', {
+        fetch('https://laptop-gamma.vercel.app/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

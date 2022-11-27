@@ -17,7 +17,10 @@ import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Products from "../../Pages/Products/Products";
 import Register from "../../Pages/Register/Register";
+import AdminRoute from "../AdminRoute/AdminRoute";
+import BuyerRoute from "../BuyerRoute/BuyerRoute";
 import PrivateRoute from "../PrivateRoute";
+import SellerRoute from "../SellerRoute/SellerRoute";
 
 
 
@@ -32,7 +35,7 @@ const router = createBrowserRouter(
                 {
                     path: '/',
                     element: <Home></Home>,
-                    loader: () => fetch("http://localhost:5000/category")
+                    loader: () => fetch("https://laptop-gamma.vercel.app/category")
                 },
                 {
                     path: '/login',
@@ -49,7 +52,7 @@ const router = createBrowserRouter(
                 {
                     path: '/categories/:id',
                     element: <PrivateRoute><Products></Products></PrivateRoute>,
-                    loader: ({ params }) => fetch(`http://localhost:5000/categories/${params.id}`)
+                    loader: ({ params }) => fetch(`https://laptop-gamma.vercel.app/categories/${params.id}`)
 
                 },
                 {
@@ -70,30 +73,30 @@ const router = createBrowserRouter(
                 },
                 {
                     path: '/dashboard/myorders',
-                    element: <Myorders></Myorders>
+                    element: <BuyerRoute><Myorders></Myorders></BuyerRoute>
                 },
                 {
                     path: '/dashboard/myproducts',
-                    element: <MyProducts></MyProducts>
+                    element: <SellerRoute><MyProducts></MyProducts></SellerRoute>
                 },
                 {
                     path: '/dashboard/addProducts',
-                    element: <Addproducts></Addproducts>
+                    element: <SellerRoute> <Addproducts></Addproducts></SellerRoute>
                 },
                 {
                     path: '/dashboard/seller',
-                    element: <AllSellers></AllSellers>,
+                    element: <AdminRoute><AllSellers></AllSellers></AdminRoute>,
 
                 },
                 {
                     path: '/dashboard/buyer',
-                    element: <AllBuyers></AllBuyers>,
+                    element: <AdminRoute> <AllBuyers></AllBuyers></AdminRoute>,
 
                 },
                 {
                     path: '/dashboard/items',
-                    element: <ReportedItems></ReportedItems>,
-                    loader: () => fetch("http://localhost:5000/product")
+                    element: <AdminRoute><ReportedItems></ReportedItems></AdminRoute>,
+                    loader: () => fetch("https://laptop-gamma.vercel.app/product")
                 },
             ]
         }

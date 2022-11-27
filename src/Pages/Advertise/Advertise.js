@@ -8,7 +8,7 @@ const Advertise = () => {
     const { data: advertise = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/advertise');
+            const res = await fetch('https://laptop-gamma.vercel.app/advertise');
             const data = await res.json();
             return data;
         }

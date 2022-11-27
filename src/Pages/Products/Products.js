@@ -2,12 +2,14 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import CardGroup from 'react-bootstrap/CardGroup';
 import ProductCard from '../ProductCard/ProductCard';
+import useTitle from '../../Hooks/useTitle';
 
 
 const Products = () => {
 
     const products = useLoaderData();
     const len = products.length;
+    useTitle("Products")
 
     return (
         <div>

@@ -11,12 +11,21 @@ const ModalForm = ({ show, setShow, prod }) => {
 
     const { user } = useContext(AuthContext);
 
-    const handleClose = () => {
+    const handleClose = (id) => {
 
         setShow(false);
+        fetch(`https://laptop-gamma.vercel.app/products/${id}`, {
+            method: 'PUT',
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    alert('Your order is Booked Successfully!');
+                }
+            })
 
     }
-    const { name, location, price, img, orgPrice, use, date, seller } = prod;
+    const { name, location, price, img, orgPrice, use, date, seller, _id } = prod;
 
 
     const handleBooking = event => {
@@ -37,7 +46,7 @@ const ModalForm = ({ show, setShow, prod }) => {
             location
 
         }
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://laptop-gamma.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -48,12 +57,13 @@ const ModalForm = ({ show, setShow, prod }) => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    alert('Your order is Booked Successfully!');
+
                     form.reset();
 
                 }
             })
             .catch(er => console.error(er));
+
 
     }
 
@@ -99,8 +109,8 @@ const ModalForm = ({ show, setShow, prod }) => {
                         </Button>
                     </Form></Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
+                    <Button variant="primary" onClick={() => handleClose(_id)}>
+                        Book
                     </Button>
 
                 </Modal.Footer>

@@ -11,7 +11,7 @@ const AllSellers = () => {
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/sellers');
+            const res = await fetch('https://laptop-gamma.vercel.app/sellers');
             const data = await res.json();
             return data;
         }
@@ -20,7 +20,7 @@ const AllSellers = () => {
     const handleDelete = (email) => {
         const proceed = window.confirm('Are you sure, you want to Delete this product?');
         if (proceed) {
-            fetch(`http://localhost:5000/users/${email}`, {
+            fetch(`https://laptop-gamma.vercel.app/users/${email}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -43,7 +43,7 @@ const AllSellers = () => {
                         <th>ID</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Role</th>
+
                         <th>Delete</th>
                     </tr>
                 </thead>
@@ -53,7 +53,7 @@ const AllSellers = () => {
                         <td>{index + 1}</td>
                         <td>{user.name}</td>
                         <td>{user.email}</td>
-                        <td>{user.role}</td>
+
                         <td className='text-center'> <button onClick={() => handleDelete(user.email)} className='border-0 btn btn-danger' type=""><FontAwesomeIcon className='' icon={faTrash} /></button> </td>
                     </tr>)}
                 </tbody>

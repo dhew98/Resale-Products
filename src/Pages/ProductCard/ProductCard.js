@@ -11,7 +11,7 @@ import ModalForm from '../Modal/Modal';
 const ProductCard = ({ prod }) => {
     const [show, setShow] = useState(false);
     const handleShow = () => setShow(true);
-    const { name, location, price, img, orgPrice, use, date, seller, description } = prod;
+    const { name, location, price, img, orgPrice, use, date, seller, description, condition } = prod;
     return (
         <div>
             <Card style={{ width: '25rem' }} className="m-5 " >
@@ -26,9 +26,11 @@ const ProductCard = ({ prod }) => {
                     <Card.Text>
                         <p ><span className='fw-bold'>Description : </span>{description.slice(0, 100)}</p>
                         <p >location : <span className='fw-bold'>{location}</span> </p>
-                        <p >Resale Price : <span className='fw-bold'>{price} Tk</span> </p>
+
                         <p >Original Price : <span className='fw-bold'>{orgPrice} Tk</span> </p>
+                        <p >Resale Price : <span className='fw-bold'>{price} Tk</span> </p>
                         <p >Used : <span className='fw-bold'>{use}yr</span> </p>
+                        <p >Condition : <span className='fw-bold'>{condition}</span> </p>
                         <p >Posted : <span className='fw-bold'>{date}</span> </p>
                         <div className='d-flex justify-content-between align-items-center'>
 
